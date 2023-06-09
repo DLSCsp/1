@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTC-3">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>?</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+
+  <body>
+
+    <!-- Formulário da senha (não é importante) -->
+    <div class="card">
+        <div class="topo">
+            <img class="img" src="NicePng_usuario-png_2022264.png" width="50" height="50" alt="fotodeusuário">
+            <h2>Iniciado,</h2>
+            <p class="p1">seja parte da nossa empresa!</p>
+
+  <form class="form" onsubmit="return verificarSenha()">
+    <label class="label" for="senha"></label>
+    <input placeholder="Digite a senha" class="camposenha" type="password" id="senha" required>
+    <span id="password-toggle" class="password-toggle" onclick="togglePasswordVisibility()">Exibir senha</span>
+    <br>
+    <input class="botão" type="submit" value="Verificar">
+  </form>
+</div>
+
+  <script>
+    
+    function verificarSenha() {
+      var senhaDigitada = document.getElementById("senha").value;
+      var senhaDigitadaMD5 = CryptoJS.MD5(senhaDigitada).toString();
+      var senhaCorreta = ("80a751fde577028640c419000e33eba6").toString();
+      
+      if (senhaDigitadaMD5 === senhaCorreta) {
+        window.location.href = "resposta.html";
+      } else {
+        alert("Senha incorreta! Lembre-se de colocar os espaços ou letras maiúsculas.");
+      }
+      
+      return false;
+    }
+  </script>
+
+<script>
+  function togglePasswordVisibility() {
+    var passwordInput = document.getElementById("senha");
+    var passwordToggle = document.getElementById("password-toggle");
+
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+      passwordToggle.textContent = "Ocultar senha";
+    } else {
+      passwordInput.type = "password";
+      passwordToggle.textContent = "Exibir senha";
+    }
+  }
+</script>
+
+</body>
+</html>
